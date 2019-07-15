@@ -227,4 +227,9 @@ class Challenge < ApplicationRecord
   def allows_team_changes?
     status != :completed && (end_dttm.nil? || end_dttm > 1.week.from_now)
   end
+  
+  def teams_frozen?
+    return true if status == :completed
+    end_dttm.present? && end_dttm < 1.week.from_now
+  end
 end

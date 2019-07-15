@@ -10,7 +10,7 @@
           <li class="nav-item">
             <%= link_to 'Leaderboard', challenge_leaderboards_path(challenge), class: tab_class('leaderboard') + " nav-link nav-link-02", "data-turbolinks": false %>
           </li>
-        <% end %>      
+        <% end %>
       <% end %>
       <li class="nav-item">
         <%= link_to 'Discussion', URI.escape(File.join(ENV['DISCOURSE_DOMAIN_NAME'], 'c', challenge.slug[0..49])),
@@ -110,7 +110,6 @@
         </li>
         <!-- /more dropdown xs -->
       </ul>
-
       <% if !policy(challenge).has_accepted_participation_terms? %>
         <%= link_to 'Participate',
         [challenge, ParticipationTerms.current_terms],
@@ -120,9 +119,8 @@
         [challenge, challenge.current_challenge_rules],
         class: "btn btn-primary btn-sm pull-right" %>
       <% else %>
-		    <% if !policy(challenge).starting_soon_mode? %>
-				  <% if policy(challenge).submissions_allowed? && current_tab != 'dataset' %>
-            <%= team_creation_button(current_participant, challenge) %>
+        <%= team_creation_button(current_participant, challenge) %>
+        <% if policy(challenge).submissions_allowed? && current_tab != 'dataset' %>
             <%= link_to 'Create Submission',
                   new_challenge_submission_path(challenge),
                   class: "btn btn-primary btn-sm pull-right" %>
