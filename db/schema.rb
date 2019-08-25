@@ -573,6 +573,7 @@ ActiveRecord::Schema.define(version: 2019_08_25_123534) do
     t.index ["sash_id"], name: "index_merit_scores_on_sash_id"
   end
 
+<<<<<<< HEAD
   create_table "migration_logs", force: :cascade do |t|
     t.integer "crowdai_participant_id"
     t.integer "aicrowd_participant_id"
@@ -584,6 +585,8 @@ ActiveRecord::Schema.define(version: 2019_08_25_123534) do
     t.string "source_type"
     t.integer "source_id"
     t.integer "crowdai_participant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
