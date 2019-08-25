@@ -18,7 +18,7 @@ class Submission < ApplicationRecord
   as_enum :grading_status,
     [:ready, :submitted, :initiated, :graded, :failed], map: :string
 
-  validates :participant_id, presence: true
+  validates :participant_id, presence: false
   validates :challenge_id, presence: true
   validates :grading_status, presence: true
   validate :clef_validations
