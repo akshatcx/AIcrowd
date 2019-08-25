@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_10_133044) do
+ActiveRecord::Schema.define(version: 2019_08_25_121424) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_stat_statements"
@@ -571,6 +571,14 @@ ActiveRecord::Schema.define(version: 2019_08_10_133044) do
     t.bigint "sash_id"
     t.string "category", default: "default"
     t.index ["sash_id"], name: "index_merit_scores_on_sash_id"
+  end
+
+  create_table "migration_mappings", force: :cascade do |t|
+    t.string "source_type"
+    t.integer "source_id"
+    t.integer "crowdai_participant_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "notifications", force: :cascade do |t|
