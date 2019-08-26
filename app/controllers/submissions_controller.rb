@@ -46,7 +46,6 @@ class SubmissionsController < ApplicationController
                       .where(
                           challenge_round_id: @current_round_id,
                           challenge_id: @challenge.id)
-                      .where.not(participant_id: nil)
                       .search(search_params)
       end
     end

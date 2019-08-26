@@ -1,15 +1,20 @@
 <!-- team member -->
 <li class="list-group-item">
-  <% if participant.is_a? NullParticipant %>
+  <% if participant.nil? %>
+    <%= concept(Image::Cell, participant, klass: "avatar") %>
+    <span class="text-link">Unknown User</span>
+  <% else %>
+    <% if participant.is_a? NullParticipant %>
       <%= link_to '#' do %>
-        <%= concept(Image::Cell,participant, klass: "avatar") %>
+        <%= concept(Image::Cell, participant, klass: "avatar") %>
         <span class="text-link"><%= @participant.name %></span>
       <% end %>
     <% else %>
       <%= link_to participant_path(participant) do %>
-        <%= concept(Image::Cell,participant, klass: "avatar") %>
+        <%= concept(Image::Cell, participant, klass: "avatar") %>
         <span class="text-link"><%= @participant.name %></span>
       <% end %>
+    <% end %>
   <% end %>
 </li>
 <!-- /team member -->
